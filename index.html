@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bhoomi Prajapati | Software Development Engineer</title>
+<meta name="description" content="Portfolio of Bhoomi Prajapati, Software Development Engineer at IBM working on backend, REST APIs and test automation for IBM Aspera Faspex.">
+<style>
+  :root {
+    --bg: #0f172a;
+    --surface: #111c33;
+    --card: #16233f;
+    --border: #243455;
+    --text: #e6edf7;
+    --muted: #9fb0cc;
+    --accent: #5aa9ff;
+    --accent2: #8b7cf6;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", system-ui, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(15, 23, 42, 0.92);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+  .brand { font-weight: 700; color: var(--text); letter-spacing: .5px; }
+  .nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { color: var(--muted); font-size: 14px; }
+  .nav ul a:hover { color: var(--text); text-decoration: none; }
+
+  /* Hero */
+  .hero { padding: 90px 0 70px; }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+  .hero h1 { font-size: 52px; line-height: 1.1; margin: 10px 0 14px; }
+  .hero h2 { font-size: 22px; font-weight: 500; color: var(--muted); margin: 0 0 20px; }
+  .hero p { max-width: 640px; color: var(--muted); font-size: 17px; margin: 0 0 28px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 11px 20px; border-radius: 8px;
+    font-weight: 600; font-size: 15px; border: 1px solid var(--border); color: var(--text);
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #07111f; }
+  .btn:hover { text-decoration: none; border-color: var(--accent); }
+
+  /* Sections */
+  section { padding: 56px 0; border-top: 1px solid var(--border); }
+  section h3 { font-size: 26px; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 28px; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 4px; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center; }
+  .stat b { display: block; font-size: 28px; color: var(--accent); }
+  .stat span { color: var(--muted); font-size: 13px; }
+
+  /* Cards */
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 18px; }
+  .card h4 { margin: 0; font-size: 19px; }
+  .meta { color: var(--muted); font-size: 14px; margin: 2px 0 12px; }
+  .card ul { margin: 0; padding-left: 20px; color: var(--text); }
+  .card li { margin-bottom: 6px; }
+  .role + .role { margin-top: 18px; padding-top: 18px; border-top: 1px dashed var(--border); }
+
+  /* Projects */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .grid .card { margin: 0; display: flex; flex-direction: column; }
+  .grid .card p { color: var(--muted); margin: 8px 0 10px; font-size: 15px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: auto 0 14px; padding-top: 6px; }
+  .tag { background: #1d2d52; color: #bcd3f5; border-radius: 999px; padding: 3px 10px; font-size: 12px; }
+  .card .link { font-weight: 600; font-size: 14px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .skill { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
+  .skill h4 { margin: 0 0 10px; font-size: 15px; color: var(--accent2); letter-spacing: .5px; text-transform: uppercase; }
+
+  /* Education */
+  .edu { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .edu + .edu { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+
+  /* Contact */
+  .contact-list { list-style: none; padding: 0; margin: 0 0 20px; }
+  .contact-list li { margin-bottom: 8px; color: var(--muted); }
+  .contact-list b { color: var(--text); display: inline-block; min-width: 90px; }
+
+  /* What I do */
+  .do { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .do .card { margin: 0; }
+  .do .card p { color: var(--muted); margin: 8px 0 0; font-size: 15px; }
+
+  /* Project details */
+  .feat { margin: 10px 0 14px; padding-left: 18px; color: var(--text); font-size: 14px; }
+  .feat li { margin-bottom: 5px; }
+  .label { font-size: 12px; text-transform: uppercase; letter-spacing: .8px; color: var(--accent2); font-weight: 600; margin-top: 4px; }
+
+  /* Timeline */
+  .timeline { border-left: 2px solid var(--border); margin-left: 6px; padding-left: 22px; }
+  .tl { position: relative; margin-bottom: 22px; }
+  .tl::before { content: ""; position: absolute; left: -29px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  .tl .when { color: var(--accent); font-size: 13px; font-weight: 600; }
+  .tl h4 { margin: 2px 0 2px; font-size: 17px; }
+  .tl p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  footer { border-top: 1px solid var(--border); padding: 24px 0; text-align: center; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 38px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .do { grid-template-columns: 1fr; }
+    .nav ul { gap: 14px; }
+  }
+  @media (max-width: 520px) {
+    .nav ul li:nth-child(n+4) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Bhoomi Prajapati</a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="eyebrow">Software Development Engineer, IBM</div>
+      <h1>Hi, I'm Bhoomi Prajapati.</h1>
+      <h2>I build and validate backend systems and REST APIs.</h2>
+      <p>I work on IBM Aspera Faspex, an enterprise file-transfer platform, across backend services, REST APIs and automation. I like data structures, Java and clean API design, and I enjoy finding the root cause of hard bugs.</p>
+      <div class="btns">
+        <a class="btn primary" href="Bhoomi_Prajapati_Resume.pdf" download>Download Resume</a>
+        <a class="btn" href="https://www.linkedin.com/in/bhoomi-671033271/">LinkedIn</a>
+        <a class="btn" href="https://github.com/bhoomi1030">GitHub</a>
+      </div>
+    </div>
+
+    <section id="about">
+      <h3>About</h3>
+      <p class="sub">A software engineer with a strong base in DSA, Java, OOP and DBMS.</p>
+      <p>I'm a B.Tech Computer Science graduate from G L Bajaj Institute of Technology and Management (CGPA 8.1/10). I joined IBM as a 6-month Software Development Engineer intern and converted to a full-time role. Day to day I work with REST APIs, Ruby and RSpec automation, Linux environments and pull-request based development.</p>
+      <div class="stats">
+        <div class="stat"><b>250+</b><span>REST / Swagger endpoints validated</span></div>
+        <div class="stat"><b>500+</b><span>Test cases executed</span></div>
+        <div class="stat"><b>4</b><span>Faspex releases validated</span></div>
+        <div class="stat"><b>8.1</b><span>CGPA out of 10</span></div>
+      </div>
+    </section>
+
+    <section id="what-i-do">
+      <h3>What I Do</h3>
+      <p class="sub">The kind of work I do at IBM and in my projects.</p>
+      <div class="do">
+        <div class="card"><h4>Backend &amp; API Engineering</h4><p>I work with REST APIs end to end: request parameters, response payloads, authentication, HTTP status codes and error handling. I also build Node.js / Express services with MongoDB.</p></div>
+        <div class="card"><h4>Test Automation</h4><p>I write and maintain UI and API automation in Ruby and RSpec for Faspex, covering user management, webhooks, workgroups, shared inboxes and package processing.</p></div>
+        <div class="card"><h4>Debugging &amp; Root Cause</h4><p>I reproduce defects, read API responses and logs to find the cause, and verify fixes through functional and regression testing on RHEL and Rocky Linux.</p></div>
+        <div class="card"><h4>Release Quality</h4><p>I run clean-install and upgrade testing and take part in validating Faspex releases 5.0.16 to 5.0.19 RC, working through Git, pull requests and code reviews.</p></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h3>Experience</h3>
+      <p class="sub">IBM, Lucknow, India</p>
+      <div class="card">
+        <div class="role">
+          <h4>Software Development Engineer</h4>
+          <div class="meta">Jul 2026 – Present</div>
+          <ul>
+            <li>Contribute to frontend and backend development of IBM Aspera Faspex: UI components, application workflows and REST API integrations.</li>
+            <li>Develop and maintain UI and API test automation with Ruby, RSpec, REST APIs and Git; raise pull requests and address code-review feedback.</li>
+            <li>Validated 250+ REST API / Swagger endpoints for request parameters, response payloads, authentication, HTTP status codes and negative scenarios.</li>
+            <li>Executed 500+ test cases covering functional, regression, clean-install and upgrade testing on RHEL and Rocky Linux.</li>
+            <li>Debug defects through API responses, logs and workflow analysis to find root causes; troubleshoot Podman, RPM and configuration issues.</li>
+            <li>Cover user and group management, webhooks, workgroups, shared inboxes, invitation links and package processing; contributed to validation of Faspex releases 5.0.16, 5.0.17, 5.0.18 and 5.0.19 RC.</li>
+          </ul>
+        </div>
+        <div class="role">
+          <h4>Software Development Engineer Intern</h4>
+          <div class="meta">Mar 2026 – Jul 2026</div>
+          <ul>
+            <li>Contributed to Faspex development, UI/API automation and regression-suite maintenance using Ruby, RSpec and REST APIs; validated request-response behavior, authentication and error handling.</li>
+            <li>Reproduced and investigated defects, verified fixes through functional and regression testing, and supported release validation. Converted the 6-month internship into a full-time role.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h3>Projects</h3>
+      <p class="sub">Backend, full-stack and machine learning work.</p>
+      <div class="grid">
+        <div class="card">
+          <h4>QuickStay: Hotel Booking</h4>
+          <p>A full-stack hotel booking platform where users search hotels, view rooms and make reservations.</p>
+          <div class="label">Backend design</div>
+          <ul class="feat">
+            <li>Layered Node.js / Express REST API: routes, controllers, middleware and Mongoose models.</li>
+            <li>MongoDB schemas for users, hotels, rooms and bookings, linked by references, with booking status and payment status enums.</li>
+            <li>Date-range overlap query that checks room availability before a booking is created, to prevent double-booking.</li>
+            <li>Booking price computed from nights stayed and nightly rate.</li>
+          </ul>
+          <div class="label">Security &amp; integrations</div>
+          <ul class="feat">
+            <li>Clerk authentication middleware protects the API routes.</li>
+            <li>Signature-verified webhook syncs user create, update and delete events to the database.</li>
+            <li>Stripe payments and a responsive React.js frontend.</li>
+          </ul>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">React.js</span><span class="tag">Clerk</span><span class="tag">Stripe</span></div>
+          <a class="link" href="https://github.com/bhoomi1030/HOTEL_BOOKINGs">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <h4>Fake Social Media Account Detection</h4>
+          <p>A machine learning project that classifies social media accounts as fake or genuine.</p>
+          <div class="label">Approach</div>
+          <ul class="feat">
+            <li>Random Forest classifier built in Python with scikit-learn.</li>
+            <li>Limited data was addressed by augmenting the training set with synthetic samples.</li>
+            <li>Data handling and analysis with pandas and NumPy; charts with Matplotlib and Seaborn.</li>
+            <li>Models compared and evaluated in Jupyter Notebook.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">Seaborn</span></div>
+          <a class="link" href="https://github.com/bhoomi1030/fake-social-media-">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <h4>Car Rental System</h4>
+          <p>A command-line application for renting and returning cars, built to practice object-oriented design in Java.</p>
+          <div class="label">Design</div>
+          <ul class="feat">
+            <li>Domain modeled with Car, Customer, Rental and RentalSystem classes.</li>
+            <li>Inventory, bookings and returns managed with Java Collections (ArrayList).</li>
+            <li>Encapsulation, inheritance, polymorphism and abstraction used for separation of concerns.</li>
+            <li>Input validation and exception handling to reject invalid transactions.</li>
+          </ul>
+          <div class="tags"><span class="tag">Java</span><span class="tag">OOP</span><span class="tag">Collections</span></div>
+          <a class="link" href="https://github.com/bhoomi1030/Car_Rental_System">View on GitHub →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h3>Technical Skills</h3>
+      <p class="sub">What I work with.</p>
+      <div class="skills">
+        <div class="skill"><h4>Languages</h4>Java, Python, Ruby, JavaScript, C++, C, SQL</div>
+        <div class="skill"><h4>Core CS</h4>Data Structures and Algorithms, OOP, DBMS, Operating Systems, Computer Networks</div>
+        <div class="skill"><h4>Backend &amp; APIs</h4>Node.js, Express.js, REST APIs, API Integration, Swagger, Webhooks, Authentication, HTTP Status Codes</div>
+        <div class="skill"><h4>Databases</h4>MySQL, MongoDB, MongoDB Atlas</div>
+        <div class="skill"><h4>Frontend</h4>React.js, HTML5, CSS3, Responsive Web Design</div>
+        <div class="skill"><h4>Testing &amp; Automation</h4>RSpec, Selenium, UI &amp; API Automation, Functional, Regression, Negative, Clean-Install &amp; Upgrade Testing</div>
+        <div class="skill"><h4>Data &amp; ML</h4>scikit-learn, pandas, NumPy, Matplotlib, Seaborn, Jupyter Notebook</div>
+        <div class="skill"><h4>Operating Systems</h4>RHEL (Red Hat Enterprise Linux), Rocky Linux, Linux</div>
+        <div class="skill"><h4>Tools &amp; Practices</h4>Git, GitHub, Postman, Insomnia, Podman, RPM, Vercel, Debugging, Root-Cause Analysis, Code Reviews</div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <h3>My Journey</h3>
+      <p class="sub">From college to a full-time engineering role.</p>
+      <div class="timeline">
+        <div class="tl"><div class="when">2020 – 2022</div><h4>Canossa Convent Girls' Inter College, Ayodhya</h4><p>High School 75%, Intermediate 80%.</p></div>
+        <div class="tl"><div class="when">Nov 2022</div><h4>Started B.Tech in Computer Science and Engineering</h4><p>G L Bajaj Institute of Technology and Management, Greater Noida. Studied DSA, OOP, DBMS, Operating Systems and Computer Networks, and joined the National Service Scheme (NSS).</p></div>
+        <div class="tl"><div class="when">During college</div><h4>Built projects and entered competitions</h4><p>Built QuickStay, the fake account detector and the Car Rental System; completed "Alpha: DSA with Java" by Apna College; selected among 50 teams for the Smart India Hackathon.</p></div>
+        <div class="tl"><div class="when">Mar 2026</div><h4>Joined IBM as a Software Development Engineer Intern</h4><p>Worked on Faspex UI and API automation, defect investigation and regression testing.</p></div>
+        <div class="tl"><div class="when">Jul 2026</div><h4>Converted to full-time Software Development Engineer at IBM</h4><p>Now working across backend, REST APIs and automation for IBM Aspera Faspex.</p></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h3>Education &amp; Achievements</h3>
+      <p class="sub">&nbsp;</p>
+      <div class="card">
+        <div class="edu">
+          <div><h4>G L Bajaj Institute of Technology and Management</h4><div class="meta">B.Tech in Computer Science and Engineering | CGPA: 8.1/10</div></div>
+          <div class="meta">Nov 2022 – Jul 2026</div>
+        </div>
+        <div class="edu">
+          <div><h4>Canossa Convent Girls' Inter College, Ayodhya</h4><div class="meta">Intermediate: 80% | High School: 75%</div></div>
+          <div class="meta">2020 – 2022</div>
+        </div>
+      </div>
+      <div class="card">
+        <ul>
+          <li>Selected among 50 teams for the Smart India Hackathon.</li>
+          <li>Completed "Alpha: DSA with Java" by Apna College.</li>
+          <li>NSS member since 2022; participated in social initiatives and blood donation drives.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h3>Contact</h3>
+      <p class="sub">Open to conversations about backend and software engineering roles.</p>
+      <ul class="contact-list">
+        <li><b>Email</b> <a href="mailto:bhoomi18p2003@gmail.com">bhoomi18p2003@gmail.com</a></li>
+        <li><b>Phone</b> <a href="tel:+919140850313">9140850313</a></li>
+        <li><b>Location</b> Greater Noida, Uttar Pradesh</li>
+        <li><b>LinkedIn</b> <a href="https://www.linkedin.com/in/bhoomi-671033271/">bhoomi-671033271</a></li>
+        <li><b>GitHub</b> <a href="https://github.com/bhoomi1030">bhoomi1030</a></li>
+      </ul>
+      <a class="btn primary" href="mailto:bhoomi18p2003@gmail.com">Say hello</a>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">&copy; Bhoomi Prajapati</div>
+</footer>
+
+</body>
+</html>
